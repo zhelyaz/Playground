@@ -21,31 +21,16 @@ public class Hooks {
 	@Before("~@loginError")
 	public void startUp() throws IOException {
 
-		//Driver Factory
-		String os = System.getProperty("os.name").toLowerCase();
-
-		if (os.contains("mac")) {
-			try {
-				LOG.info("Launching chrome browser");
-				System.setProperty("webdriver.chrome.driver",
-						new File("./src/test/resources/drivers/chromedriver").getCanonicalPath());
-				driver = new ChromeDriver();
-				driver.manage().window().maximize();
-				driver.manage().deleteAllCookies();
-			} catch (Exception e) {
-				LOG.info("Unable to locate the driver...");
-			}
-		} else {
-			try {
-				LOG.info("Launching chrome browser");
-				System.setProperty("webdriver.chrome.driver",
-						new File("./src/test/resources/drivers/chromedriver.exe").getCanonicalPath());
-				driver = new ChromeDriver();
-				driver.manage().window().maximize();
-				driver.manage().deleteAllCookies();
-			} catch (Exception e) {
-				LOG.info("Unable to locate the driver...");
-			}
+		// Driver Factory
+		try {
+			LOG.info("Launching chrome browser");
+			System.setProperty("webdriver.chrome.driver",
+					new File("./src/test/resources/drivers/chromedriver.exe").getCanonicalPath());
+			driver = new ChromeDriver();
+			driver.manage().window().maximize();
+			driver.manage().deleteAllCookies();
+		} catch (Exception e) {
+			LOG.info("Unable to locate the driver...");
 		}
 	}
 
