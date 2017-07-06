@@ -15,28 +15,28 @@ public class CalculatorPage extends AbstractPage {
 		super(driver);
 	}
 
-	@FindBy(css = ".cs-scalc__range-slider__input")
-	private WebElement currentScore;
+	@FindBy(css = "input.js-range-current")
+	private WebElement currentScoreSlide;
 
-	@FindBy(xpath = "/html/body/div[3]/div[2]/div[1]/div/section[3]/div/div/div/div/div[2]/input")
-	private WebElement goalScore;
+	@FindBy(css = "input.js-range-goal")
+	private WebElement goalScoreSlide;
 
-	@FindBy(xpath = "/html/body/div[3]/div[2]/div[1]/div/section[3]/div/div/div/div/div[4]/table/tbody/tr[1]/td[2]")
-	private WebElement currentRate;
+	@FindBy(css = ".js-current-average-rate")
+	private WebElement currentAvgRate;
 
-	@FindBy(xpath = "/html/body/div[3]/div[2]/div[1]/div/section[3]/div/div/div/div/div[4]/table/tbody/tr[1]/td[3]")
-	private WebElement goalRate;
+	@FindBy(css = ".js-goal-average-rate")
+	private WebElement goalAvgRate;
 
-	@FindBy(xpath = "/html/body/div[3]/div[2]/div[1]/div/section[3]/div/div/div/div/div[4]/table/tbody/tr[2]/td[2]")
-	private WebElement currentCost;
+	@FindBy(css = ".js-current-annual-cost")
+	private WebElement currentAnnCost;
 
-	@FindBy(xpath = "/html/body/div[3]/div[2]/div[1]/div/section[3]/div/div/div/div/div[4]/table/tbody/tr[2]/td[3]")
-	private WebElement goalCost;
+	@FindBy(css = ".js-goal-annual-cost")
+	private WebElement goalAnnCost;
 
-	@FindBy(xpath = "/html/body/div[3]/div[2]/div[1]/div/section[3]/div/div/div/div/div[4]/table/tbody/tr[3]/td[2]")
+	@FindBy(css = ".js-current-cc-available")
 	private WebElement currentCards;
 
-	@FindBy(xpath = "/html/body/div[3]/div[2]/div[1]/div/section[3]/div/div/div/div/div[4]/table/tbody/tr[3]/td[3]")
+	@FindBy(css = ".js-goal-cc-available")
 	private WebElement goalCards;
 
 	@FindBy(className = "js-total-saving-value")
@@ -51,32 +51,32 @@ public class CalculatorPage extends AbstractPage {
 		JavascriptExecutor exe = (JavascriptExecutor) driver;
 		exe.executeScript("window.scrollBy(0,400)", "");
 		for (int i = 1; i <= number; i++) {
-			currentScore.sendKeys(Keys.ARROW_LEFT);
+			currentScoreSlide.sendKeys(Keys.ARROW_LEFT);
 		}
 		return new CalculatorPage(driver);
 	}
 
 	public CalculatorPage updateGoalScore(int number) {
 		for (int i = 1; i <= number; i++) {
-			goalScore.sendKeys(Keys.ARROW_RIGHT);
+			goalScoreSlide.sendKeys(Keys.ARROW_RIGHT);
 		}
 		return new CalculatorPage(driver);
 	}
 
 	public String getCurrentRate() {
-		return currentRate.getText();
+		return currentAvgRate.getText();
 	}
 
 	public String getGoalRate() {
-		return goalRate.getText();
+		return goalAvgRate.getText();
 	}
 
 	public String getCurrentCost() {
-		return currentCost.getText();
+		return currentAnnCost.getText();
 	}
 
 	public String getGoalCost() {
-		return goalCost.getText();
+		return goalAnnCost.getText();
 	}
 
 	public String getCurrentCards() {
