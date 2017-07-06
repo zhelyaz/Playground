@@ -33,6 +33,7 @@ public class CookieStepDefinitions {
 
 	@Given("^clearscore website is loaded$")
 	public void clearscoreWebsiteIsLoaded() throws Throwable {
+		//instantiating the webDriver from the Hooks class
 		driver = hooks.getDriver();
 		LandingPage page = new LandingPage(driver);
 		page.navigateTo();
