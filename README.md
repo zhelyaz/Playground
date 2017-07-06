@@ -2,13 +2,13 @@
 Sample Project
 Cucumber Playground
 
-#General Notes
+# General Notes
 The test set up has been done on a Windows machine. 
 You may need to change the system path in the Hooks.java class 
 if you are using Mac. Also, you should download a Chromedriver 
 for mac binary and place it in the src/test/java/resources/drivers folder.
 
-#How to run the tests:
+# How to run the tests:
 
 mvn clean test
 
