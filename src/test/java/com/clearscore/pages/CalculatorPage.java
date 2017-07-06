@@ -48,8 +48,15 @@ public class CalculatorPage extends AbstractPage {
 	}
 
 	public CalculatorPage updateCurrentScore(int number) {
+		// moving the scrollbar of the browser down
 		JavascriptExecutor exe = (JavascriptExecutor) driver;
 		exe.executeScript("window.scrollBy(0,400)", "");
+
+		/*
+		 * I admit that this is a hacky way to achieve the movement of the
+		 * coursor left. However Selenium 3 Actions class did not perform well
+		 * with the latest browser versions
+		 */
 		for (int i = 1; i <= number; i++) {
 			currentScoreSlide.sendKeys(Keys.ARROW_LEFT);
 		}

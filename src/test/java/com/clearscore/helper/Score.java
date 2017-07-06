@@ -1,5 +1,8 @@
 package com.clearscore.helper;
 
+/* Plain java object that will help us extract
+ * values from the data table in the feature file.
+ */
 public class Score {
 	public String interest_rate;
 	public String costs;

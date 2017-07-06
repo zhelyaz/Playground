@@ -7,6 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+/*
+ * Introduced an additional level of abstraction and page objects
+ */
 public class AbstractPage {
 
 	protected WebDriver driver;

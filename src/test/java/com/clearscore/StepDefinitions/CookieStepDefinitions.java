@@ -11,12 +11,22 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+/*
+ * Step definitions are where you’ll tell Cucumber
+ * how you want it to interact with the system under test.
+ * It is essentially the java class that is glued to our feature files.
+ * An annotation (@Given/ @When/ @Then) followed by the pattern is
+ * used to link the Step Definition to all the matching Steps
+ * and the code is what Cucumber will execute when it sees a
+ * Gherkin Step.
+ */
 public class CookieStepDefinitions {
 
 	WebDriver driver;
 	LandingPage page;
 	private Hooks hooks;
 
+	//Dependency injection using picocontainer.
 	public CookieStepDefinitions(Hooks hooks) {
 		this.hooks = hooks;
 	}
